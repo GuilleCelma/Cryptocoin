@@ -8,12 +8,12 @@
 }
 
 body {
-  background-color: rgb(255, 255, 255);
+  background-color:   rgb(22,26,29);
   
 }
 
 a {
-  color: #00b7ff;
+  color: rgb(34, 177, 76);
 }
 
 /* ===============
@@ -69,7 +69,7 @@ a {
   font-family: arial;
 }
 
-#logo-img{
+.logo-img{
   width: 50px;
   height: 50px;
   margin-right: 5px;
@@ -133,18 +133,36 @@ header{
     align-items: center;
   }
 
-   #singup{
+  .singup-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+  }
+   .singup{
      width: 500px;
      height: 500px;
-     border-radius: 20px;
-     background-color: rgba(45,49,52, 0.3) ;
+     top:155px;
+     right: 500px;
+     background-color: rgba(45, 49, 52, 0.925) ;
      display: flex;
      justify-content: center;
      align-items: center;
-
    }
 
-   #singupContainer form{
+   .image-form{
+     width: 500px;
+     height: 500px;
+     
+   }
+   .image-form img{
+     width: 500px;
+     height: 500px;
+     
+   }
+   
+   .singupContainer form{
      font-family: "libre franklin";
      display: flex;
      flex-direction: column;
@@ -160,7 +178,7 @@ header{
      color: rgb(179, 179, 179);
      outline: none;
    }
-   #singupContainer {
+   .singupContainer {
      display: flex;
      flex-direction: column;
      justify-content: center;
@@ -168,7 +186,7 @@ header{
 
    }
 
-   #registered{
+   .registered{
     color:rgba(179, 179, 179, 0.589);
     margin-top: 20px;
     font-family: "libre franklin";
@@ -181,4 +199,112 @@ header{
    }
 
   
+   /* ===============
+      PAGE STYLES
+   =============== */  
+
+   #page-head{
      
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     height: 100px;
+     background-color:rgba(45,49,52, 0.3) ;
+
+   }
+   #logo-containers{
+    display: flex;
+    align-items: center;
+    color: rgb(34, 177, 76);
+    font-family: arial;
+   }
+
+   nav{
+    background-color:rgba(45,49,52, 0.3) ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 86vh;
+    width: 135px;
+   }
+  .nav-link{
+    margin-bottom: 50px;
+  }
+
+   .nav-icon{
+     width: 60px;
+     height: 60px;
+     transition: 1s ease;
+   }
+   .nav-icon:hover{
+     width: 80px;
+     height: 80px;
+   }
+
+   main{
+     display: flex;
+   }
+
+   #table-container{
+     display: flex;
+     justify-content: center;
+     align-items: flex-start;
+     
+     width: 94vw;
+   }
+
+   table{
+     color:rgba(179, 179, 179, 0.849);
+     margin-top: 50px;
+     background-color: rgba(45,49,52, 0.3);
+     font-family:  "libre franklin";
+   }
+   th,
+   td{
+     border:none;
+     border-bottom:1px solid rgba(179, 179, 179, 0.589);
+     width: 200px;
+     padding:10px 30px;
+     text-align: center;
+     background-color: rgba(45,49,52, 0.3);
+   }
+   th{
+     color:rgb(199, 199, 199) ;
+   }
+   .coin-logo{
+    width: 18px;
+    height: 18px;
+   }
+
+   #filters{
+     position: absolute;
+     top:150px;
+     left:180px;
+     height: 50vh;
+     width: 200px;
+     background-color: rgba(45,49,52, 0.3);
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+   }
+
+   #search-bar{
+     
+     width: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+   #search-form{
+     height: 30px;
+   }
+   #search-form button{
+    
+   }
+   .search-btn{
+     width: 30px;
+     height: 30px;
+     background-color: rgba(45, 49, 52, 0.918);
+   }

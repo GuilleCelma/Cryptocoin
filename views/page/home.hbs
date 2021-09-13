@@ -1,0 +1,45 @@
+<header id="page-head">
+    <div id="logo-containers">
+        <img src="/images/output-onlinepngtools (5).png" alt="logo" class="logo-img">
+        <h1>CRYPTOCOIN</h1>
+    </div>
+
+    <a href="/logout"> Log out</a>
+</header>
+<main>
+    <nav>
+        <a href="/home" class="nav-link"> <img src="/images/home.png" class="nav-icon"></a>
+        <a href="/transactions" class="nav-link"> <img src="/images/bank.png" class="nav-icon"></a>
+        <a href="/charts"class="nav-link"> <img src="/images/charts.png" class="nav-icon"></a>
+    </nav>
+    <div id="filters">
+        <form action="/home/search" method="POST" id="search-bar" >
+            <input type="text" name="id" placeholder="Coin Name" class="form" id="search-form">
+            <button type="submit" class="search-btn"><img src="/images/output-onlinepngtools (6).png" class="search-btn"></button>
+        </form>
+
+    </div>
+
+    <section id="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Coin</th>
+                    <th>Symbol</th>
+                    <th>Price</th>
+                    <th>Market Cap</th>
+                </tr>
+        </thead>
+            <tbody>
+                {{#each coin}}
+                    <tr>
+                        <td> <img src="{{image}}" class="coin-logo"> {{name}}</td>
+                        <td>{{symbol}}</td>
+                        <td> €{{current_price}}</td>
+                        <td>{{market_cap}}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </section>
+</main>
