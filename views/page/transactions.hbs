@@ -1,0 +1,97 @@
+<header id="page-head">
+    <div id="logo-containers">
+        <img src="/images/output-onlinepngtools (5).png" alt="logo" class="logo-img">
+        <h1>CRYPTOCOIN</h1>
+    </div>
+
+    <a href="/logout"> Log out</a>
+</header>
+<main>
+    <nav>
+        <a href="/home" class="nav-link"> <img src="/images/home.png" class="nav-icon"></a>
+        <a href="/transactions" class="nav-link"> <img src="/images/bank.png" class="nav-icon"></a>
+        <a href="/charts"class="nav-link"> <img src="/images/charts.png" class="nav-icon"></a>
+    </nav>
+
+    <section id="transaction-container">
+        <div id="add-transaction">
+            <form action="/transaction/create" method="POST">
+
+                <label for="type">Type:</label>
+                <select name="type" id="type">
+                     <option value="Purchase">Purchase</option>
+                     <option value="Sale">Sale</option>
+                </select>
+
+                <label for="coin">Coin:</label>
+                <input type="text" name="coin" placeholder="Coin">
+
+                <label for="value">Value:</label>
+                <input type="number" name="value" placeholder="Value" min="0">
+
+                <label for="date"> Date:</label>
+                <input type="date" name="date" >
+                
+                <button type="submit">ADD</button>
+
+                
+            </form>
+        </div>
+
+        <div id="trans-back">
+
+            {{#each transactions}}
+
+                {{#if this.edit}}
+                <div class="trans-card">
+                    <form action="/transactions/update/{{id}}" method="post" id="trans-form">
+                        <select name="type" id="type">
+                            <option value="Purchase">Purchase</option>
+                            <option value="Sale">Sale</option>
+                        </select>
+
+                        <label for="coin">Coin:</label>
+                        <input type="text" name="coin" value={{coin}}>
+
+                        <label for="value">Value:</label>
+                        <input type="number" name="value" value={{value}}>
+
+                        <label for="date"> Date:</label>
+                        <input type="date" name="date" value="{{date}}">
+                        <button type="submit"><img src="/images/select.png" class="delete-icon"></button>
+                    </form>
+                </div>
+
+                {{else}}
+                <div class="trans-card">
+                    <div class="trans-text">
+                        <p>{{type}}</p>   
+                    </div>
+                    <div class="trans-text">
+                        <p>{{coin}}</p>   
+                    </div>
+                    <div class="trans-text">
+                        <p> €{{value}}</p>   
+                    </div>
+                    <div class="trans-text">
+                        <p> {{date}}</p>   
+                    </div>
+
+                    <div>
+                       <a href="/transactions/update/{{_id}}">
+                           <img src="/images/edit.png" class="delete-icon">
+                       </a> 
+                    </div>
+                    <div>
+                       <a href="/transactions/delete/{{_id}}">
+                           <img src="/images/delete.png" class="delete-icon">
+                       </a> 
+                    </div>
+                </div>
+                
+                {{/if}}
+                
+            {{/each}}
+        </div>
+    </section>
+</main>

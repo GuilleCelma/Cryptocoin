@@ -20,6 +20,15 @@
 
     </div>
 
+    {{#if errorMessage}}
+        <div>
+            <p>
+                {{{errorMessage}}}
+            </p>
+        </div>
+    {{/if}}
+
+
     <section id="table-container">
         <table>
             <thead>
@@ -42,4 +51,11 @@
             </tbody>
         </table>
     </section>
+    <div id="page-container">
+        <p>Page: </p>
+        <a href="/home/1">1</a>
+        <a href="/home/2">2</a>
+        <a href="/home/3">3</a>
+        <a href="/home/4">4</a>
+    </div>
 </main>

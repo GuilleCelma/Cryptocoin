@@ -200,7 +200,7 @@ header{
 
   
    /* ===============
-      PAGE STYLES
+     COIN PAGE STYLES
    =============== */  
 
    #page-head{
@@ -235,11 +235,12 @@ header{
    .nav-icon{
      width: 60px;
      height: 60px;
-     transition: 1s ease;
+     transition: 0.5s ease;
    }
    .nav-icon:hover{
      width: 80px;
      height: 80px;
+     
    }
 
    main{
@@ -281,12 +282,12 @@ header{
      position: absolute;
      top:150px;
      left:180px;
-     height: 50vh;
+     height: 20vh;
      width: 200px;
      background-color: rgba(45,49,52, 0.3);
      display: flex;
      flex-direction: column;
-     justify-content: center;
+    
      align-items: center;
    }
 
@@ -296,15 +297,158 @@ header{
      display: flex;
      justify-content: center;
      align-items: center;
+     margin-top: 20px;
    }
    #search-form{
      height: 30px;
-   }
-   #search-form button{
+     margin:0;
+     background-color: rgba(45,49,52, 0.3);
+    }
     
-   }
-   .search-btn{
+    .search-btn{
+     cursor: pointer;
      width: 30px;
      height: 30px;
-     background-color: rgba(45, 49, 52, 0.918);
+     margin:0px;
    }
+
+   #page-container{
+     display: flex;
+     width:300px;
+     height: 20px;
+     position:absolute;
+     top: 680px;
+     right: 490px;
+     
+   }
+   #page-container p{
+    color:rgb(199, 199, 199);
+    font-family:  "libre franklin";
+    padding-right: 10px;
+   }
+   #page-container a{
+    text-decoration: none;
+    color:rgb(199, 199, 199);
+    font-family:  "libre franklin";
+    padding-right: 10px;
+   }
+
+    /* ====================================
+          TRANSACTIONS PAGE STYLES
+   ========================================*/  
+
+   #transaction-container{
+     margin:20px;
+     width: 85vw;
+     height:75vh;
+     position: absolute;
+     top: 125px;
+     right: 25px;
+     background-color: rgba(45,49,52, 0.3);
+   }
+
+   #add-transaction{
+     border: 1px solid rgb(199, 199, 199);
+     margin: 30px;
+     height: 50px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     color:rgb(199, 199, 199);
+     font-family:"libre franklin"
+    }
+    
+    #add-transaction input,select, button {
+    color:rgb(199, 199, 199);
+    margin:0 20px;
+    font-family:"libre franklin";
+    border:none;
+    background-color: rgba(45, 49, 52, 0);
+   }
+    #add-transaction select{
+      color:white;
+      background-color: rgba(22, 26, 29, 0.452)
+    }
+    #add-transaction button{
+      cursor: pointer;
+      border: 1px solid rgba(199, 199, 199, 0.712);
+      padding:5px 10px;
+      font-size: 10px;
+    }
+   
+    #trans-back{
+      background-color: rgb(22,26,29);
+      position: absolute;
+      top:120px;
+      left: 35px;
+      height: 55vh;
+      width: 80.5vw;
+      display: flex;
+      flex-direction: column;
+      overflow-y: scroll;
+      align-items: center;
+    }
+
+    #trans-back::-webkit-scrollbar {
+      width: 1em;
+    }
+     
+    #trans-back::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+     
+    #trans-back::-webkit-scrollbar-thumb {
+      background-color: rgb(66, 69, 71);
+      outline: none;
+    }
+  .trans-card{
+    height: 30px;
+    width: 95%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   background-color: rgba(45,49,52, 0.3);
+    color:rgba(199, 199, 199, 0.712);
+    font-family:"libre franklin";
+    margin: 10px 0;
+
+  }
+  .trans-text{
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  .trans-text p{
+   text-align: center;
+  }
+  .delete-icon{
+    height: 22px;
+    width: 22px;
+    margin-right: 20px;
+    cursor: pointer;
+  }
+
+  #trans-form{
+    height: 30px;
+    width: 95%;
+    position:absolute;
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color:rgba(199, 199, 199, 0.712);
+    font-family:"libre franklin";
+    margin: 10px 0;
+  }
+  #trans-form input{
+    height: 25px;
+   background-color: rgba(45, 49, 52, 0.61);
+   border:none;
+   outline: none;
+   color:rgba(199, 199, 199, 0.712);
+   text-align: center;
+  }
+  
+ 

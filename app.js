@@ -88,6 +88,9 @@ passport.use(
         const page = require("./routes/page");
         app.use("/", page);
 
+        const transaction = require("./routes/transactions");
+        app.use("/", transaction);
+
 
         // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
         require("./error-handling")(app);
