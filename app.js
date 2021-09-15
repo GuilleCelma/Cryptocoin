@@ -15,16 +15,17 @@ const express = require("express");
 const hbs = require("hbs");
 
 
-const bcrypt = require('bcryptjs');
+
 const passport = require('passport');
-const LocalStrategy = require('passport-local').Strategy;
-const User = require("./models/User.model.js")
+const session = require('express-session')
+
 const flash = require("connect-flash")
 const app = express();
 
+
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
-require("./config/session.config")(app)
+//require("./config/session.config")(app)
 
 // default value for title local
 const projectName = "cryptoCoin";
@@ -35,49 +36,19 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
 
 //Handling Passport
+    app.use(session({secret: "secret"}))
+    app.use(flash())
 
-app.use(flash())
-passport.use(
-    new LocalStrategy(
+
+    require("./passport/index")
+    app.use(passport.initialize())
+    app.use(passport.session());
         
-        {
-            usernameField: 'username', 
-            passwordField: 'password',
-            session: true
-        },
-        ( username, password, done) => {
-            User.findOne({ username })
-            .then(user => {
-                if (!user) {
-                    return done(null, false, { message: 'Incorrect username' });
-                }
-                
-                if (!bcrypt.compareSync(password, user.password)) {
-                    return done(null, false, { message: 'Incorrect password' });
-                }
-                
-                done(null, user);
-            })
-            .catch(err => done(err));
-        }
-        )
-        )
-        
-        
-        passport.serializeUser((user, cb) => cb(null, user._id));
-        
-        passport.deserializeUser((id, cb) => {
-            User.findById(id)
-            .then(user => cb(null, user))
-            .catch(err => cb(err));
-        });
-        
-        
-        
-        
-        app.use(passport.initialize())
-        app.use(passport.session());
-        
+    app.use((req,res,next) =>{
+        console.log(req.session)
+        console.log(req.user)
+        next()
+    })
         // 👇 Start handling routes here
         const index = require("./routes/index");
         app.use("/", index);

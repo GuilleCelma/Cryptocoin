@@ -49,36 +49,11 @@ router.post("/singup", (req, res) =>{
    =============== */
 
    router.get("/login", (req,res) =>{
-       res.render("auth/login",{ errorMessage: req.flash('error') })
+       res.render("auth/login",)
    })
 
 
-   router.post('/login', (req, res, next) => {
-    passport.authenticate('local',{
-        failureFlash: true
-      }, (err, theUser, failureDetails) => {
-
-      if (err) {
-        // Something went wrong authenticating user
-        return next(err);
-      }
-   
-      if (!theUser) {
-        // Unauthorized, `failureDetails` contains the error messages from our logic in "LocalStrategy" {message: '…'}.
-        res.render('auth/login', { errorMessage: req.flash('error') });
-        return;
-      }
-   
-      // save user in session: req.user
-      req.login(theUser, err => {
-        if (err) {
-          // Session save went bad
-          return next(err);
-        }
-   
-        // All good, we are now logged in and `req.user` is now set
-        res.redirect('/home');
-      });
-    })(req, res, next);
-  });
+   router.post('/login', passport.authenticate('local', {failureRedirect: "/login" , successRedirect: "/home"}))
+        
+      
 module.exports = router
