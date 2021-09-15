@@ -336,7 +336,7 @@ header{
     /* ====================================
           TRANSACTIONS PAGE STYLES
    ========================================*/  
-
+   
    #transaction-container{
      margin:20px;
      width: 85vw;
@@ -345,8 +345,8 @@ header{
      top: 125px;
      right: 25px;
      background-color: rgba(45,49,52, 0.3);
-   }
-
+    }
+    
    #add-transaction{
      border: 1px solid rgb(199, 199, 199);
      margin: 30px;
@@ -365,9 +365,9 @@ header{
     border:none;
     background-color: rgba(45, 49, 52, 0);
    }
-    #add-transaction select{
-      color:white;
-      background-color: rgba(22, 26, 29, 0.452)
+   #add-transaction select{
+     color:white;
+     background-color: rgba(22, 26, 29, 0.452)
     }
     #add-transaction button{
       cursor: pointer;
@@ -375,7 +375,7 @@ header{
       padding:5px 10px;
       font-size: 10px;
     }
-   
+    
     #trans-back{
       background-color: rgb(22,26,29);
       position: absolute;
@@ -388,30 +388,30 @@ header{
       overflow-y: scroll;
       align-items: center;
     }
-
+    
     #trans-back::-webkit-scrollbar {
       width: 1em;
     }
-     
+    
     #trans-back::-webkit-scrollbar-track {
       box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     }
-     
+    
     #trans-back::-webkit-scrollbar-thumb {
       background-color: rgb(66, 69, 71);
       outline: none;
     }
-  .trans-card{
-    height: 30px;
-    width: 95%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-   background-color: rgba(45,49,52, 0.3);
-    color:rgba(199, 199, 199, 0.712);
-    font-family:"libre franklin";
-    margin: 10px 0;
-
+    .trans-card{
+      height: 30px;
+      width: 95%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: rgba(45,49,52, 0.3);
+      color:rgba(199, 199, 199, 0.712);
+      font-family:"libre franklin";
+      margin: 10px 0;
+      
   }
   .trans-text{
     width: 500px;
@@ -421,7 +421,7 @@ header{
     
   }
   .trans-text p{
-   text-align: center;
+    text-align: center;
   }
   .delete-icon{
     height: 22px;
@@ -429,7 +429,7 @@ header{
     margin-right: 20px;
     cursor: pointer;
   }
-
+  
   #trans-form{
     height: 30px;
     width: 95%;
@@ -444,11 +444,30 @@ header{
   }
   #trans-form input{
     height: 25px;
-   background-color: rgba(45, 49, 52, 0.61);
-   border:none;
-   outline: none;
-   color:rgba(199, 199, 199, 0.712);
-   text-align: center;
+    background-color: rgba(45, 49, 52, 0.61);
+    border:none;
+    outline: none;
+    color:rgba(199, 199, 199, 0.712);
+    text-align: center;
   }
   
- 
+      /* ====================================
+              CHARTS PAGE STYLES
+     ========================================*/  
+
+     #canvas-container{
+       width:1300px;
+      height: 540px;
+       
+     }
+
+     #myChart{
+       width: 40px;
+       height: 40px;
+       
+     }
+
+
+  
+  
+  

@@ -1,1 +1,0 @@
-const Transaction = require("../models/Transaction.model.js")

@@ -5,6 +5,7 @@ const transactionSchema = new Schema({
     coin: String,
     value: String,
     date:String,
+    author: String,
     edit: {
         type:Boolean,
         default: false

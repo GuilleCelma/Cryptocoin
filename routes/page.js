@@ -1,13 +1,14 @@
 const router = require("express").Router()
 const CoinService = require("../service/APIHandler.js")
 const coinAPI = new CoinService()
-const Transaction = require("../models/Transaction.model.js")
+const isAuth = require("../passport/authMiddleware").isAuth
+
 
 /* ====================================
          COIN MARKET ROUTES
    ========================================*/  
 
-router.get("/home", (req,res) =>{  // FIRST 10 COINS ROUTE PER MARKET CAP
+router.get("/home", isAuth, (req,res) =>{  // FIRST 10 COINS ROUTE PER MARKET CAP
       
     coinAPI.getAllCoinsP1()
     .then(coins => {
@@ -19,7 +20,7 @@ router.get("/home", (req,res) =>{  // FIRST 10 COINS ROUTE PER MARKET CAP
 
 
 
-router.get("/home/:id", (req,res) =>{ //PAGINATION ROUTES
+router.get("/home/:id",isAuth, (req,res) =>{ //PAGINATION ROUTES
     
     const {id} = req.params
 
@@ -57,7 +58,7 @@ router.get("/home/:id", (req,res) =>{ //PAGINATION ROUTES
 
 
 
-router.post("/home/search", (req,res) =>{   //SINGLE COIN SEARH ROUTE
+router.post("/home/search",isAuth, (req,res) =>{   //SINGLE COIN SEARH ROUTE
 
     const {id} = req.body 
 

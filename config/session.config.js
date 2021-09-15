@@ -1,7 +1,9 @@
-const session = require("express-session")
+
 const MongoStore = require("connect-mongo")
 
-module.exports = app =>{
+
+
+module.exports = (app, session) =>{
     app.set('trust proxy', 1)
 
     app.use(
@@ -16,8 +18,7 @@ module.exports = app =>{
             maxAge: 600000 // 60 * 1000 ms === 1 min
           },
           store: MongoStore.create({
-            mongoUrl: process.env.MONGODB_URI || "mongodb://localhost/cryptoCoin"
-    
+            mongoUrl: process.env.DB_REMOTE
           })
         })
       )

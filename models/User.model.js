@@ -8,7 +8,7 @@ const userSchema = new Schema({
   },
   email:String,
   password: String,
-  transactions: [String],
+  transactions:  [{ type: Schema.Types.ObjectId, ref: 'Transaction' }]
 }, 
 {
   timestamps:true

@@ -13,19 +13,22 @@ const express = require("express");
 // https://www.npmjs.com/package/hbs
 
 const hbs = require("hbs");
-
-
-
+const session =require("express-session")
 const passport = require('passport');
-const session = require('express-session')
-
 const flash = require("connect-flash")
 const app = express();
 
+const MongoStore = require("connect-mongo")
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
-//require("./config/session.config")(app)
+
+app.use(session({ secret: "cats", store: MongoStore.create({
+    mongoUrl: process.env.DB_REMOTE
+  })
+}));
+
+
 
 // default value for title local
 const projectName = "cryptoCoin";
@@ -36,19 +39,22 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
 
 //Handling Passport
-    app.use(session({secret: "secret"}))
+
     app.use(flash())
 
 
     require("./passport/index")
+    
     app.use(passport.initialize())
     app.use(passport.session());
         
-    app.use((req,res,next) =>{
+   /* app.use((req,res,next) =>{
         console.log(req.session)
         console.log(req.user)
         next()
-    })
+    })*/
+
+
         // 👇 Start handling routes here
         const index = require("./routes/index");
         app.use("/", index);
@@ -61,6 +67,9 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
         const transaction = require("./routes/transactions");
         app.use("/", transaction);
+
+        const charts = require("./routes/charts");
+        app.use("/", charts);
 
 
         // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes

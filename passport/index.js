@@ -2,13 +2,13 @@ const passport = require("passport")
 const LocalStrategy = require("passport-local").Strategy
 const User = require("../models/User.model")
 const bcrypt = require("bcryptjs")
-const saltRounds = 10
+
 
 
 const customFields ={
             usernameField: 'username', 
             passwordField: 'password',
-            
+            session: true
 }
 
 
@@ -41,3 +41,4 @@ passport.use(Strategy)
             .then(user => cb(null, user))
             .catch(err => cb(err));
         });
+
