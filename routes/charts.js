@@ -9,33 +9,23 @@ router.get("/charts", isAuth ,(req, res, next)=>{
 
     Transaction
     .find({author:req.user.id})
-    .sort({createdAt:-1})
+    .sort({createdAt:1})
     .then(transactions => {
         
-        let dates=[]
-        let balancePerDate =[]
-
-        let totalBalcancePerDate =[]
-
-
-        for( transaction of transactions){
-            dates.push(transaction.date)
-        }
-
 
         let objetoTrans = {}
-        
+       
             for(let j= 0; j < transactions.length; j++){
 
 
                 let newDate = transactions[j].date
 
-                    if(transactions[j].type === "Purchase"){
+                if(transactions[j].type === "Purchase"){
                 
 
                 if(objetoTrans[newDate]){
                     objetoTrans[newDate] -= Number(transactions[j].value)
-                }else{objetoTrans[newDate] = Number(transactions[j].value)}
+                }else{objetoTrans[newDate] = -Number(transactions[j].value)}
                   
             }else{
                 if(objetoTrans[newDate]){
@@ -43,11 +33,16 @@ router.get("/charts", isAuth ,(req, res, next)=>{
                 }else{objetoTrans[newDate] = Number(transactions[j].value)}
             }
             
-            /*else{//console.log(dates[i],  transactions[j].value)
-                balancePerDate.push ()}*/
-            }
-            console.log(objetoTrans)
+          
+        }
+
+        
             
+        console.log(objetoTrans)
+       let final=Object.entries(objetoTrans)
+        console.log(final)
+        
+            res.render("page/charts", {final})
         
         
 
@@ -81,8 +76,6 @@ router.get("/charts", isAuth ,(req, res, next)=>{
         
 })
     .catch(err => console.log(err))
-
-    res.render("page/charts" )
 })
 
 
