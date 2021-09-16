@@ -4,7 +4,7 @@
         <h1>CRYPTOCOIN</h1>
     </div>
 
-    <a href="/logout"> Log out</a>
+    <a href="/logout" id="login-btn"> Log out</a>
 </header>
 <main>
     <nav>
@@ -12,6 +12,13 @@
         <a href="/transactions" class="nav-link"> <img src="/images/bank-out.png" class="nav-icon"></a>
         <a href="/charts"class="nav-link"> <img src="/images/charts.png" class="nav-icon"></a>
     </nav>
+
+
+    <div id="chart-btn-container">
+        
+        <a href="/charts/coins">Coins</a>
+    </div>
+
    <section id="transaction-container">
 
 
@@ -22,7 +29,7 @@
 
         <div id="canvas-container">
 
-            <canvas id="myChart" width="1400" height="540"></canvas>
+            <canvas id="myChart" width="1300" height="540"></canvas>
         </div>
 
 
@@ -30,16 +37,11 @@
 
         <script>
 
-                console.log("holaaa!")
                 var ctx = document.getElementById('myChart');
-
-
 
                 var averages = [];
                 var dates = [];
 
-                
-                
                 {{#each final}}
                     var avg = "{{this.[1]}}";
                     averages.push(avg);
@@ -53,28 +55,12 @@
                     console.log("aqui!")
                     total.push(total[i-1]+ parseInt(averages[i]))}
 
-                var data = {
-                    labels: dates,
-                    datasets: [{
-                        data: averages,
-                        label: "Balance of the Day",
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                        borderColor:'rgb(75, 192, 192)',
-                        borderWidth:1,
-                    }]
-                }
-                var data2 = {
-                    labels: dates,
-                    datasets: [{
-                        data: total,
-                        label: "total of the Day",
-                        backgroundColor: 'rgba(34, 177, 76, 0.2)',
-                        borderColor:'rgb(34, 177, 76)',
-                        borderWidth:1,
-                    }]
-                }
+            
+                
                   var options = {
                     legend: false,
+                    responsive:true,
+                    maintainAspectRatio:true,
                     cubicInterpolationMode:"default",
                     scales: {
                         yAxes: [{
@@ -86,7 +72,7 @@
                             }
                         }]
                     },
-                    animation: false
+                    animation: true
                 };
                 var myBarChart = new Chart(ctx, {
                   data: {
@@ -94,9 +80,9 @@
                     type: 'line',
                     label: 'balance of the day',
                     data: averages,
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor:'rgb(75, 192, 192)',
-                    borderWidth:1
+                    backgroundColor: 'rgba(245, 200, 66, 0.2)',
+                    borderColor:'rgb(245, 200, 66)',
+                    borderWidth:2
                 }, {
                     type: 'bar',
                     label: 'total of the day',

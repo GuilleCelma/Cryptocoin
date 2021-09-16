@@ -170,6 +170,7 @@ header{
      align-items: flex-start;
      color: rgb(179, 179, 179) ;
    }
+
    .form{
      border:none;
      margin: 10px 0 10px 0;
@@ -185,6 +186,25 @@ header{
      align-items: center;
 
    }
+   .singupContainer button {
+   
+    font-family: arial;
+    font-weight: bold;
+    color: rgb(179, 179, 179);
+    padding: 7px 30px;
+    border: 3px solid rgb(34, 177, 76);
+    border-radius: 30px;
+    transition: 0.4s ease;
+    margin-top: 20px;
+    cursor:pointer;
+   }
+   .singupContainer button:hover{
+  transform: translateY(10px);
+  color: white;
+  background-color: rgb(34, 177, 76)
+    
+   }
+
 
    .registered{
     color:rgba(179, 179, 179, 0.589);
@@ -194,8 +214,9 @@ header{
 
    .error{
      padding: 10px 30px;
-     color: white;
-     background-color: red;
+     color: rgba(255, 255, 255, 0.699);
+     font-family: "libre franklin";
+     background-color: rgba(253, 8, 0, 0.295);
    }
 
   
@@ -236,7 +257,7 @@ header{
    .nav-icon{
      width: 60px;
      height: 60px;
-     transition: 0.5s ease;
+     transition: 0.3s ease;
    }
    .nav-icon:hover{
      width: 80px;
@@ -288,7 +309,6 @@ header{
      background-color: rgba(45,49,52, 0.3);
      display: flex;
      flex-direction: column;
-    
      align-items: center;
    }
 
@@ -455,17 +475,54 @@ header{
       /* ====================================
               CHARTS PAGE STYLES
      ========================================*/  
-
+     
      #canvas-container{
        width:1300px;
-      height: 540px;
+       height: 540px;
        
+      }
+      
+     .canvas-container-coin{
+       position: absolute;
+       left:760px;
+       width:540px;
+       height: 400px;
+       display: flex;
+       justify-content: center;
+      }
+     #canvas-container-coin2{
+       position: absolute;
+       left:0px;
+       width:540px;
+       height: 400px;
      }
+      
+      
+      
+    #chart-btn-container{
+    position: absolute;
+    left:186px;
+    height:46px;
+    width:500px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    }
+    
+    #chart-btn-container a{
+    text-decoration: none;
+    padding: 3px 20px;
+    margin-right: 20px;
+    font-family:"libre franklin";
+    color:rgba(199, 199, 199, 0.712);
+    border: 2px solid rgba(34, 177, 76);
+    border-radius: 30px;
+    transition: 1s ease;
+    }
 
-     #myChart{
-       width: 40px;
-       height: 40px;
-       
-     }
-
-  
+    #chart-btn-container a:hover{
+    text-decoration: none;
+    font-family:"libre franklin";
+    background-color: rgb(34, 177, 76) ;
+    color: rgb(255, 254, 254);
+    }

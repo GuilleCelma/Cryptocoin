@@ -1,0 +1,173 @@
+<header id="page-head">
+    <div id="logo-containers">
+        <img src="/images/output-onlinepngtools (5).png" alt="logo" class="logo-img">
+        <h1>CRYPTOCOIN</h1>
+    </div>
+
+    <a href="/logout" id="login-btn"> Log out</a>
+</header>
+<main>
+    <nav>
+        <a href="/home" class="nav-link"> <img src="/images/home-out.png" class="nav-icon"></a>
+        <a href="/transactions" class="nav-link"> <img src="/images/bank-out.png" class="nav-icon"></a>
+        <a href="/charts"class="nav-link"> <img src="/images/charts.png" class="nav-icon"></a>
+    </nav>
+
+
+    <div id="chart-btn-container">
+        
+        <a href="/charts">Balance</a>
+    </div>
+
+   <section id="transaction-container">
+
+
+
+        {{#if final}}
+       
+
+
+        <div class="canvas-container-coin">
+
+            <canvas id="coinChart" width="540" height="400"></canvas>
+            
+        </div>
+        <div id="canvas-container-coin2">
+
+            <canvas id="coinChart2" width="540" height="400"></canvas>
+        </div>
+
+       
+
+        <script>
+
+                var ctx = document.getElementById('coinChart');
+                var ctx2 = document.getElementById('coinChart2');
+               
+                var averages = [];
+                var coins = [];
+
+                    
+                 
+                {{#each final}}
+                    var avg = "{{this.[1]}}";
+                    averages.push(avg);
+                    var coin = "{{this.[0]}}";
+                    coins.push(coin);
+                {{/each}}
+
+
+                let countTrans = []
+               
+
+               {{#each final2}}
+                   var avg = "{{this.[1]}}";
+                    countTrans.push(avg);
+                    
+               {{/each}}
+                
+
+               // console.log(transName, countTrans)
+                var data = {
+                    labels: coins,
+                    datasets: [{
+                        data: averages,
+                        label: "coins",
+                        backgroundColor: [
+                            'rgba(34, 177, 76, 0.2)',
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                         borderColor: [
+                                'rgb(34, 177, 76)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                }
+                
+                  
+                
+               var myBarChart = new Chart(ctx, {
+                    type: 'polarArea',
+                    data: data,
+                    options: {
+                        scales: {
+                                r: {
+                                    backgroundColor: 'rgba(113, 115, 110, 0.1)',
+                                    ticks:{
+                                        display:false
+                                    },
+                                    suggestedMin: 0,
+                                    suggestedMax: 100
+                                }
+                            },
+                        plugins: {
+                        title: {
+                            display: true,
+                            text: 'Total Transactions Value per Coin',
+                            padding: {
+                                top: 10,
+                                bottom: 30
+                                        }
+                        }
+                    }
+                    }
+                });
+
+               var myBarChart2 = new Chart(ctx2, {
+                    type: 'doughnut',
+                    data: {
+                    labels: coins,
+                    datasets: [{
+                        data: countTrans,
+                        label: "coins",
+                        backgroundColor: [
+                            'rgba(34, 177, 76, 0.2)',
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                         borderColor: [
+                                'rgb(34, 177, 76)',
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                   options: {
+                        plugins: {
+                        title: {
+                            display: true,
+                            text: 'Number of Transactions per Coin',
+                            padding: {
+                                top: 10,
+                                bottom: 30
+                                        }
+                        }
+                    }
+                    }
+                });
+                
+
+            </script>
+        {{/if}}
+
+   </section>
