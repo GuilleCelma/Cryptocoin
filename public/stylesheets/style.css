@@ -302,11 +302,10 @@ header{
 
    #filters{
      position: absolute;
-     top:150px;
-     left:180px;
-     height: 20vh;
-     width: 200px;
-     background-color: rgba(45,49,52, 0.3);
+     top:90px;
+     left:570px;
+     height: 7vh;
+     width: 500px;
      display: flex;
      flex-direction: column;
      align-items: center;
@@ -322,6 +321,7 @@ header{
    }
    #search-form{
      height: 30px;
+     width: 100%;
      margin:0;
      background-color: rgba(45,49,52, 0.3);
     }

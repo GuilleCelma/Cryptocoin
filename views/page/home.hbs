@@ -36,6 +36,7 @@
                     <th>Coin</th>
                     <th>Symbol</th>
                     <th>Price</th>
+                    <th>%24h</th>
                     <th>Market Cap</th>
                 </tr>
         </thead>
@@ -45,6 +46,7 @@
                         <td> <img src="{{image}}" class="coin-logo"> {{name}}</td>
                         <td>{{symbol}}</td>
                         <td> €{{current_price}}</td>
+                        <td>{{price_change_percentage_24h}}</td>
                         <td>{{market_cap}}</td>
                     </tr>
                 {{/each}}
