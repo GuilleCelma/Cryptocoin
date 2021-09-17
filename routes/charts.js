@@ -47,7 +47,7 @@ router.get("/charts/coins", isAuth ,(req, res, next)=>{
     .find({author:req.user.id})
     .sort({createdAt:1})
     .then(transactions => {
-        
+    
         let objectTrans = {}
        
             for(let j= 0; j < transactions.length; j++){
@@ -73,19 +73,17 @@ router.get("/charts/coins", isAuth ,(req, res, next)=>{
                 let newCoin = transactions[j].coin
                 console.log(newCoin)
                 if(transactionCount[newCoin]){
-                    console.log("if")
+                   
                     transactionCount[newCoin] = transactionCount[newCoin] + 1
                 }else{
                     transactionCount[newCoin] = 1 
-                    console.log("else" , transactionCount[newCoin])
+                    
                 }
             }
 
 
             let final=Object.entries(objectTrans)
-            console.log(final)
             let final2 =Object.entries(transactionCount)
-            console.log(final2)
             res.render("page/chartsCoins",{ final2, final} )
         
 })

@@ -67,11 +67,6 @@ router.post("/singup", (req, res) =>{
           });
     
 
-    //const hashedPass = bcrypt.hashSync(password, saltRounds) // GENERATING AN ENCRIPTED PASSWORD
-    
-   // User.create({username, email, password:hashedPass})
-    //.then(res.render("index"))
-
 })
 
 
