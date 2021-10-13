@@ -4,6 +4,8 @@ const User = require("../models/User.model")
 const bcrypt = require("bcryptjs")
 
 
+//<---------------------PASSPORT CONFIGURATION---------------------------->
+
 
 const customFields ={
             usernameField: 'username', 
@@ -18,7 +20,6 @@ const verifyCallback = ( username, password, done) => {
         if (!user) {
             return done(null, false, { errorMessage: 'Incorrect username' });
         }
-        
         if (!bcrypt.compareSync(password, user.password)) {
             return done(null, false, { errorMessage: 'Incorrect password' });
         }

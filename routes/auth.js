@@ -11,8 +11,11 @@ const passport = require("passport")
    =============== */
 
 router.get("/singup" , (req,res) => {
+  
     res.render("auth/singup")
 })
+
+
 
 router.post("/singup", (req, res) =>{
 

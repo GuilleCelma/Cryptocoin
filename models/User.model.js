@@ -8,11 +8,7 @@ const userSchema = new Schema({
   email:String,
   password: String,
   transactions:  [{ type: Schema.Types.ObjectId, ref: 'Transaction' }]
-}, 
-{
-  timestamps:true
-}
-);
+},  {timestamps:true});
 
 const User = model("User", userSchema);
 

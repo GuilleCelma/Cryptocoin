@@ -47,12 +47,7 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
     
     app.use(passport.initialize())
     app.use(passport.session());
-        
-   /* app.use((req,res,next) =>{
-        console.log(req.session)
-        console.log(req.user)
-        next()
-    })*/
+
 
 
         // 👇 Start handling routes here

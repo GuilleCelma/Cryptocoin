@@ -15,7 +15,7 @@ module.exports = (app, session) =>{
             sameSite: "none",
             secure: process.env.NODE_ENV === 'production',
             httpOnly: true,
-            maxAge: 600000 // 60 * 1000 ms === 1 min
+            maxAge: 600000 
           },
           store: MongoStore.create({
             mongoUrl: process.env.DB_REMOTE

@@ -8,7 +8,7 @@ router.get("/charts", isAuth ,(req, res, next)=>{
     Transaction
     .find({author:req.user.id})
     .sort({createdAt:1})
-    .then(transactions => {
+    .then(transactions => {             //<------------GETING TRANSACTIONS FROM OUR CURRENT USER ----------------->
         
         let objectTrans = {}
        
@@ -16,7 +16,7 @@ router.get("/charts", isAuth ,(req, res, next)=>{
 
                 let newCoin = transactions[j].date
 
-                if(transactions[j].type === "Purchase"){
+                if(transactions[j].type === "Purchase"){    
                 
                     if(objectTrans[newCoin]){
                         objectTrans[newCoin] -= Number(transactions[j].value)

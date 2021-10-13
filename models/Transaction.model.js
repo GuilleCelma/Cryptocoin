@@ -9,12 +9,8 @@ const transactionSchema = new Schema({
     edit: {
         type:Boolean,
         default: false
-    }
-    },
-    {
-    timestamps:true
-    }
-    )
+        }
+  }, {timestamps:true})
 
 const transaction = model("transaction", transactionSchema)
 
